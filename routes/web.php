@@ -26,3 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/expenses', 'ExpenseController@getIndex')->name('show Expense')->middleware('auth');
 Route::post('/expenses', 'ExpenseController@addExpense')->name('Add Expense');
+
+Route::get('/delete/{id}', 'ExpenseController@deleteExpense')->name('deleteExpense');
+Route::get('/edit/{id}', 'ExpenseController@editExpense')->name('editComment');
+Route::post('/edit/{id}', 'ExpenseController@saveExpense')->name('saveComment');

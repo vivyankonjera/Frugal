@@ -4,9 +4,24 @@
 <div class="container">
     <div class="row justify-content-center">
 
-        <div class="col-md-6">
+        <div class="col-md-3">
             <div class="card">
-                <div class="card-header text-white" style="background-color: #1d643b;">Dashboard</div>
+                <div class="card-header text-white" style="background-color: #1d643b;">Welcome</div>
+
+                <div class="card-body">
+                    <h3>Hello {{auth::user()->name}}</h3>
+                    <p>
+                        Welcome to your Frugal dashboard! From here you can view a breakdown of your expenses by category,
+                        as well as any upcoming unpaid expenditure.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header text-white" style="background-color: #1d643b;">Breakdown</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -34,56 +49,41 @@
             </div>
         </div>
 
-
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class="card">
-                <div class="card-header text-white", style="background-color: #1d643b;">Add New Expense</div>
+                <div class="card-header text-white" style="background-color: #1d643b;">Upcoming expenses</div>
 
                 <div class="card-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="expenseInput">Expense</label>
-                            <input type="text" class="form-control" id="expenseInput" aria-describedby="emailHelp">
-                        </div>
+                    <div class="container">
+                        <table class="table table-hover" >
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Expense</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Due Date</th>
+                                <th scope="col">Paid</th>
+                            </tr>
+                            </thead>
+                            <tbody>
 
-                        <div class="form-group">
-                            <label for="amountInput">Amount</label>
-                            <input type="integer" class="form-control" id="amountInput" aria-describedby="emailHelp">
-                        </div>
+{{--                            @foreach ($allExpenses as $expense)--}}
+{{--                                <tr>--}}
+{{--                                    <td>{{$expense->expense}}</td>--}}
+{{--                                    <td>{{$expense->amount}}</td>--}}
+{{--                                    <td>{{$expense->duedate}}</td>--}}
+{{--                                    <td>{{$expense->paid}}</td>--}}
+{{--                                </tr>--}}
+{{--                            @endforeach--}}
 
-                        <div class="form-group">
-                            <label for="categorySelect">Category</label>
-                            <select class="form-control" id="categorySelect" >
-                                <option>Mortgage/Rent</option>
-                                <option>Transportation</option>
-                                <option>Insurance</option>
-                                <option>Loans</option>
-                                <option>Leisure</option>
-                                <option>Food</option>
-                                <option>Misc</option>
-                            </select>
-                        </div>
+                            </tbody>
+                        </table>
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="unpaid" id="unpaidInput" value="option1" checked>
-                            <label class="form-check-label" for="unpaidInput">
-                                Unpaid
-                            </label>
-                        </div>
+                    </div>
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="paid" id="paidInput" value="option2">
-                            <label class="form-check-label" for="paidInput">
-                                Paid
-                            </label>
-                        </div>
-
-                    <button type="button" class="btn btn-light float-right">Add Expense</button>
-
-                    </form>
 
                 </div>
             </div>
         </div>
+
 </div>
 @endsection

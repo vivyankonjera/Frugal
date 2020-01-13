@@ -18,6 +18,7 @@ class CreateExpensesTable extends Migration
             $table->string('expense');
             $table->integer('amount')->default(0);
             $table->string('category')->default('unspecified');
+            $table->date('duedate')->nullable();
             $table->string('paid')->default('Unpaid');
             $table->string('user')->nullable();
             $table->timestamps();

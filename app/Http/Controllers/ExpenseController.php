@@ -13,7 +13,7 @@ class ExpenseController extends Controller
     //
     public function getIndex()
     {
-        $allExpenses = Expense::all();
+        $allExpenses = Expense::paginate(5);
         return view('expenses', compact('allExpenses'));
     }
 
@@ -24,7 +24,37 @@ class ExpenseController extends Controller
             'amount'=> 'required'
         ]);
 
-        Expense::create(request(['expense', 'amount', 'category', 'paid', auth::user()->name ]));
+        Expense::create(request(['expense', 'amount', 'category', 'duedate','paid', auth::user()->name ]));
+        return redirect('/expenses');
+    }
+
+    public function deleteExpense($id){
+        Expense::destroy($id);
+        return redirect('/expenses');
+    }
+
+    public function editExpense($id){
+        $allExpenses = Expense::get();
+        $expense = Expense::find($id);
+        return view('/expenseEdit', ['expense' => $expense, 'allExpenses' => $allExpenses]);
+    }
+
+    public function saveExpense(Request $request, $id)
+    {
+        $request->validate([
+            'expense'=> 'required',
+            'amount'=> 'required'
+        ]);
+
+        $expense = Expense::find($id);
+
+        $expense->expense = $request->expense;
+        $expense->amount = $request->amount;
+        $expense->category = $request->category;
+        $expense->duedate = $request->duedate;
+        $expense->paid = $request->paid;
+        $expense->save();
+
         return redirect('/expenses');
     }
 }

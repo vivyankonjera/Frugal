@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-header text-white", style="background-color: #1d643b;">Add New Expense</div>
 
@@ -27,6 +27,9 @@
                                     <option>Food</option>
                                     <option>Misc</option>
                                 </select>
+
+                                <label for="dueDateInput">Due Date</label>
+                                <input type="date" class="form-control" id= "dueDateInput" name="duedate" placeholder="YYYY/MM/DD">
                             </div>
 
                             <div class="form-check">
@@ -44,7 +47,7 @@
                             </div>
 
 
-                            <button type="submit" class="btn btn-light float-right">Save</button>
+                            <button type="submit" class="btn btn-light float-right">add Expense</button>
 
                         </form>
                         <text style="color: red">@Error('expense'){{$message}}@enderror<br></text>
@@ -63,21 +66,28 @@
 
                         <div class="form-group form-inline" style="width: 40%">
                             <select class="form-control" id="sortSelect" >
-                                <option selected>Low - High</option>
+                                <option selected>Amount (Low - High)</option>
+                                <option>Amount (High - Low)</option>
                                 <option>Unpaid Expenses</option>
                                 <option>Category</option>
-                                <option>High - Low</option>
-                            </select>
+                                <option>Due date</option>
 
+                            </select>
                             <button type="button" class="btn btn-light">Sort</button>
                         </div>
 
-                        <table class="table" >
+                        <input type="text" class="form-control" id="searchInput" name="search" placeholder="Search expense...">
+
+
+                        </div>
+                    <div class="container">
+                        <table class="table table-hover" >
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col">Expense</th>
                                 <th scope="col">Amount (£)</th>
                                 <th scope="col">Category</th>
+                                <th scope="col">Due Date</th>
                                 <th scope="col">Paid</th>
                             </tr>
                             </thead>
@@ -88,14 +98,18 @@
                                     <td>{{$expense->expense}}</td>
                                     <td>{{$expense->amount}}</td>
                                     <td>{{$expense->category}}</td>
+                                    <td>{{$expense->duedate}}</td>
                                     <td>{{$expense->paid}}</td>
+                                    <td><a href="/edit/{{$expense->id}}" style="color:slategray" >Edit</a></td>
+                                    <td><a href="/delete/{{$expense->id}}" style="color: red" >Delete</a></td>
                                 </tr>
                             @endforeach
 
                             </tbody>
                         </table>
-                        <button type="button" class="btn btn-light">Edit</button>
-                        <button type="button" class="btn btn-light bg-danger text-white">Delete</button>
+
+                        {{ $allExpenses -> links () }}
+                    </div>
                     </div>
                 </div>
             </div>
