@@ -34,31 +34,31 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     Mortgage/Rent
-                                    <span class="badge float-right text-white" style="background-color: darkred">{{$categoryTotals[0]}}</span>
+                                    <span class="badge float-right text-white" style="background-color: darkred">£{{$categoryTotals[0]}}</span>
                                 </li>
                                 <li class="list-group-item">
                                     Transportation
-                                    <span class="badge float-right text-white" style="background-color: orange">{{$categoryTotals[1]}}</span>
+                                    <span class="badge float-right text-white" style="background-color: orange">£{{$categoryTotals[1]}}</span>
                                 </li>
                                 <li class="list-group-item">
                                     Insurance
-                                    <span class="badge float-right text-white" style="background-color: olive">{{$categoryTotals[2]}}</span>
+                                    <span class="badge float-right text-white" style="background-color: olive">£{{$categoryTotals[2]}}</span>
                                 </li>
                                 <li class="list-group-item">
                                     Loans
-                                    <span class="badge float-right text-white" style="background-color: seagreen">{{$categoryTotals[3]}}</span>
+                                    <span class="badge float-right text-white" style="background-color: seagreen">£{{$categoryTotals[3]}}</span>
                                 </li>
                                 <li class="list-group-item">
                                     Leisure
-                                    <span class="badge float-right text-white" style="background-color: cadetblue">{{$categoryTotals[4]}}</span>
+                                    <span class="badge float-right text-white" style="background-color: cadetblue">£{{$categoryTotals[4]}}</span>
                                 </li>
                                 <li class="list-group-item">
                                     Food
-                                    <span class="badge float-right text-white" style="background-color: palevioletred">{{$categoryTotals[5]}}</span>
+                                    <span class="badge float-right text-white" style="background-color: palevioletred">£{{$categoryTotals[5]}}</span>
                                 </li>
                                 <li class="list-group-item">
                                     Misc
-                                    <span class="badge badge-primary badge float-right">{{$categoryTotals[6]}}</span>
+                                    <span class="badge badge-primary badge float-right">£{{$categoryTotals[6]}}</span>
                                 </li>
                             </ul>
                         </div>

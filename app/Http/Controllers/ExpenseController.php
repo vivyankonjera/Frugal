@@ -57,4 +57,11 @@ class ExpenseController extends Controller
 
         return redirect('/expenses');
     }
+
+//    public function searchExpense(){
+//        $search = \request('search');
+//        dd($search);
+//        $result = Expense::where('expense', $search)->first();
+//        return view('/result', ['search' => $result]);
+//    }
 }

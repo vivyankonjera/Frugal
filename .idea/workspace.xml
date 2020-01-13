@@ -4,7 +4,6 @@
     <list default="true" id="891276d2-20d9-429f-ab74-10e94a06c8eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpenseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpenseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/expenses.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/expenses.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
@@ -163,7 +162,7 @@
       <workItem from="1578627492900" duration="4571000" />
       <workItem from="1578632302294" duration="5201000" />
       <workItem from="1578692397585" duration="65418000" />
-      <workItem from="1578925299469" duration="28231000" />
+      <workItem from="1578925299469" duration="31621000" />
     </task>
     <task id="LOCAL-00001" summary="Added Authentication to application">
       <created>1578631372046</created>
@@ -193,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578939352620</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Dashboard completed">
+      <created>1578954692451</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1578954692451</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +223,7 @@
     <MESSAGE value="Homepage view added" />
     <MESSAGE value="Expenses view and form created" />
     <MESSAGE value="CRUD operations added to expenses view" />
-    <option name="LAST_COMMIT_MESSAGE" value="CRUD operations added to expenses view" />
+    <MESSAGE value="Dashboard completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dashboard completed" />
   </component>
 </project>

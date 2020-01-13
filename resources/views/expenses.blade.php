@@ -63,22 +63,13 @@
                     <div class="card-header text-white", style="background-color: #1d643b;">Expenses</div>
 
                     <div class="card-body">
-
-                        <div class="form-group form-inline" style="width: 40%">
-                            <select class="form-control" id="sortSelect" >
-                                <option selected>Amount (Low - High)</option>
-                                <option>Amount (High - Low)</option>
-                                <option>Unpaid Expenses</option>
-                                <option>Category</option>
-                                <option>Due date</option>
-
-                            </select>
-                            <button type="button" class="btn btn-light">Sort</button>
+                        <form action="/?search=" method="POST">
+                        <div>
+                            <input type="text" class="form-control" id="searchInput" name="search" placeholder="Search expense...">
+                            <button type="submit" class="btn btn-light float-right">Search</button>
                         </div>
-
-                        <input type="text" class="form-control" id="searchInput" name="search" placeholder="Search expense...">
-
-
+                        </form>
+                        <text style="color: red">@Error('Search term'){{$message}}@enderror</text>
                         </div>
                     <div class="container">
                         <table class="table table-hover" >

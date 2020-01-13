@@ -32,4 +32,3 @@ Route::get('/delete/{id}', 'ExpenseController@deleteExpense')->name('deleteExpen
 Route::get('/edit/{id}', 'ExpenseController@editExpense')->name('editComment');
 Route::post('/edit/{id}', 'ExpenseController@saveExpense')->name('saveComment');
 
-
