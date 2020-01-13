@@ -16,10 +16,10 @@ class CreateExpensesTable extends Migration
         Schema::create('expenses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('expense');
-            $table->integer('amount');
-            $table->string('category');
-            $table->boolean('paid')->default(false);
-            $table->string('user');
+            $table->integer('amount')->default(0);
+            $table->string('category')->default('unspecified');
+            $table->string('paid')->default('Unpaid');
+            $table->string('user')->nullable();
             $table->timestamps();
         });
     }

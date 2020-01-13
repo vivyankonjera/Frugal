@@ -24,6 +24,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/expenses', 'ExpenseController@Index')->name('show Expense');
-//Route::get('/expenses', 'ExpenseController@getIndex')->name('show Expense');
-//Route::post('/expenses', 'ExpenseController@addExpense')->name('Add Expense');
+Route::get('/expenses', 'ExpenseController@getIndex')->name('show Expense')->middleware('auth');
+Route::post('/expenses', 'ExpenseController@addExpense')->name('Add Expense');

@@ -27,8 +27,9 @@
                             </ul>
                         </div>
 
+                        <a href="/expenses">
                         <button type="button" class="btn btn-light btn-md btn-block">View All Expenses</button>
-
+                        </a>
                 </div>
             </div>
         </div>
