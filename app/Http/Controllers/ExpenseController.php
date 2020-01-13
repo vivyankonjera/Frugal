@@ -36,7 +36,7 @@ class ExpenseController extends Controller
     public function editExpense($id){
         $allExpenses = Expense::get();
         $expense = Expense::find($id);
-        return view('/expenseEdit', ['expense' => $expense, 'allExpenses' => $allExpenses]);
+        return view('/expenseEdit', ['expense' => $expense]);
     }
 
     public function saveExpense(Request $request, $id)

@@ -32,13 +32,34 @@
 
                         <div class="card" style="width: content-box;">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Mortgage/Rent</li>
-                                <li class="list-group-item">Transportation</li>
-                                <li class="list-group-item">Insurance</li>
-                                <li class="list-group-item">Loans</li>
-                                <li class="list-group-item">Leisure</li>
-                                <li class="list-group-item">Food</li>
-                                <li class="list-group-item">Misc</li>
+                                <li class="list-group-item">
+                                    Mortgage/Rent
+                                    <span class="badge float-right text-white" style="background-color: darkred">{{$categoryTotals[0]}}</span>
+                                </li>
+                                <li class="list-group-item">
+                                    Transportation
+                                    <span class="badge float-right text-white" style="background-color: orange">{{$categoryTotals[1]}}</span>
+                                </li>
+                                <li class="list-group-item">
+                                    Insurance
+                                    <span class="badge float-right text-white" style="background-color: olive">{{$categoryTotals[2]}}</span>
+                                </li>
+                                <li class="list-group-item">
+                                    Loans
+                                    <span class="badge float-right text-white" style="background-color: seagreen">{{$categoryTotals[3]}}</span>
+                                </li>
+                                <li class="list-group-item">
+                                    Leisure
+                                    <span class="badge float-right text-white" style="background-color: cadetblue">{{$categoryTotals[4]}}</span>
+                                </li>
+                                <li class="list-group-item">
+                                    Food
+                                    <span class="badge float-right text-white" style="background-color: palevioletred">{{$categoryTotals[5]}}</span>
+                                </li>
+                                <li class="list-group-item">
+                                    Misc
+                                    <span class="badge badge-primary badge float-right">{{$categoryTotals[6]}}</span>
+                                </li>
                             </ul>
                         </div>
 
@@ -61,19 +82,22 @@
                                 <th scope="col">Expense</th>
                                 <th scope="col">Amount</th>
                                 <th scope="col">Due Date</th>
-                                <th scope="col">Paid</th>
+                                <th scope="col">Status</th>
+                                <th scope="col"></th>
+
                             </tr>
                             </thead>
                             <tbody>
 
-{{--                            @foreach ($allExpenses as $expense)--}}
-{{--                                <tr>--}}
-{{--                                    <td>{{$expense->expense}}</td>--}}
-{{--                                    <td>{{$expense->amount}}</td>--}}
-{{--                                    <td>{{$expense->duedate}}</td>--}}
-{{--                                    <td>{{$expense->paid}}</td>--}}
-{{--                                </tr>--}}
-{{--                            @endforeach--}}
+                            @foreach ($upcomingExpense as $expense)
+                                <tr>
+                                    <td>{{$expense->expense}}</td>
+                                    <td>£{{$expense->amount}}</td>
+                                    <td>{{$expense->duedate}}</td>
+                                    <td>{{$expense->paid}}</td>
+                                    <td><a href="/pay/{{$expense->id}}" style="color:green" >Settle</a></td>
+                                </tr>
+                            @endforeach
 
                             </tbody>
                         </table>

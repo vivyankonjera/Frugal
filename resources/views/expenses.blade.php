@@ -85,10 +85,12 @@
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col">Expense</th>
-                                <th scope="col">Amount (£)</th>
+                                <th scope="col">Amount</th>
                                 <th scope="col">Category</th>
                                 <th scope="col">Due Date</th>
-                                <th scope="col">Paid</th>
+                                <th scope="col">Status</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -96,7 +98,7 @@
                             @foreach ($allExpenses as $expense)
                                 <tr>
                                     <td>{{$expense->expense}}</td>
-                                    <td>{{$expense->amount}}</td>
+                                    <td>£{{$expense->amount}}</td>
                                     <td>{{$expense->category}}</td>
                                     <td>{{$expense->duedate}}</td>
                                     <td>{{$expense->paid}}</td>
