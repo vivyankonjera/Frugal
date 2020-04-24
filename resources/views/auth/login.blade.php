@@ -79,7 +79,9 @@
                         </div>
 
                         <div class ="form-group">
-                        <button type="submit" class="btn btn-outline-light", style="color: #de5246">Login with Google</button>
+                            <a href="/login/google">
+                        <button type="" class="btn btn-outline-light", style="color: #de5246">Login with Google</button>
+                            </a>
                         </div>
                 </div>
 

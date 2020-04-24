@@ -34,3 +34,6 @@ Route::post('/edit/{id}', 'ExpenseController@saveExpense')->name('saveComment');
 
 Route::get('/settings', 'SettingsController@getIndex')->name('Settings')->middleware('auth');
 
+Route::get('login/google', 'Auth\LoginController@redirectToProvider');
+Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
+

@@ -27,7 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        \Mail::to(auth::user()->email)->send(new Report);
+        $this->emailReminder(2);
 
         $categoryTotals = [
             $this->calculateCategory("Mortgage/Rent"),
@@ -57,6 +57,8 @@ class HomeController extends Controller
         $collection = Collect($upcomingExpense);
         $sorted = $collection->sortBy('duedate');
         $sorted->values()->all();
+
+
         return $sorted;
     }
 
@@ -85,6 +87,18 @@ class HomeController extends Controller
         $collection = Collect($amounts)->sum();
 
         return $collection;
+    }
+
+    public function emailReminder($reminderFreq){
+        $upcomingExpenses = $this->sortUpcomingExpenses();
+        $start_date = strtotime(date("y/m/d"));
+        foreach($upcomingExpenses as $expense){
+            $end_date = strtotime($expense->duedate);
+            $timeLeft = ($end_date - $start_date)/60/60/24;
+            if ($timeLeft < $reminderFreq){
+                \Mail::to(Auth::user()->email)->send(new Report);
+            }
+        }
     }
 
 
