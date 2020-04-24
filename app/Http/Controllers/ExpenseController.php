@@ -13,7 +13,7 @@ class ExpenseController extends Controller
     //
     public function getIndex()
     {
-        $allExpenses = Expense::paginate(5);
+        $allExpenses = Expense::where('user', auth::user()->email )->paginate(5);
         return view('expenses', compact('allExpenses'));
     }
 
@@ -24,7 +24,16 @@ class ExpenseController extends Controller
             'amount'=> 'required'
         ]);
 
-        Expense::create(request(['expense', 'amount', 'category', 'duedate','paid', auth::user()->name ]));
+        //Expense::create(request(['expense', 'amount', 'category', 'duedate','paid', 'user']));
+        $expense = new Expense;
+        $expense->expense = $request->expense;
+        $expense->amount = $request->amount;
+        $expense->category = $request->category;
+        $expense->duedate = $request->duedate;
+        $expense->paid = $request->paid;
+        $expense->user = auth::user()->email;
+        $expense->save();
+
         return redirect('/expenses');
     }
 

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-header text-white", style="background-color: #1d643b;">Add New Expense</div>
 
@@ -14,7 +14,7 @@
                                 <label for="expenseInput">Expense</label>
                                 <input type="text" class="form-control" id="expenseInput" name="expense" placeholder="Student Loan Repayment">
 
-                                <label for="amountInput">Amount (£)</label>
+                                <label for="amountInput">Amount</label>
                                 <input type="text" class="form-control" id="amountInput" name="amount" placeholder="152">
 
                                 <label for="categorySelect">Category</label>
@@ -46,8 +46,7 @@
                                 </label>
                             </div>
 
-
-                            <button type="submit" class="btn btn-light float-right">add Expense</button>
+                            <button type="submit" class="btn btn-outline-success float-right">Add Expense</button>
 
                         </form>
                         <text style="color: red">@Error('expense'){{$message}}@enderror<br></text>
@@ -55,10 +54,10 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row justify-content-center">
-            <div class="col-md-10">
+
+
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header text-white", style="background-color: #1d643b;">Expenses</div>
 
@@ -66,7 +65,7 @@
                         <form action="/?search=" method="POST">
                         <div>
                             <input type="text" class="form-control" id="searchInput" name="search" placeholder="Search expense...">
-                            <button type="submit" class="btn btn-light float-right">Search</button>
+                            <button type="submit" class="btn btn-outline-success float-right" style="margin-top: 10px">Search</button>
                         </div>
                         </form>
                         <text style="color: red">@Error('Search term'){{$message}}@enderror</text>
@@ -105,6 +104,7 @@
                     </div>
                     </div>
                 </div>
-            </div>
         </div>
+            </div>
+
 @endsection

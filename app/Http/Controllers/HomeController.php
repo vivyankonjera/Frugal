@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Report;
 use Illuminate\Http\Request;
 use App\Expense;
+use Illuminate\Support\Facades\Auth;
 use mysql_xdevapi\Collection;
 
 class HomeController extends Controller
@@ -25,6 +27,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        \Mail::to(auth::user()->email)->send(new Report);
+
         $categoryTotals = [
             $this->calculateCategory("Mortgage/Rent"),
             $this->calculateCategory("Transportation"),
@@ -43,7 +47,12 @@ class HomeController extends Controller
     }
 
     public function sortUpcomingExpenses(){
-        $upcomingExpense = Expense::where('paid', "Unpaid")->get();
+        $upcomingExpense = Expense::where([
+
+            ['user', auth::user()->email],
+            ['paid', "Unpaid"]
+
+        ])->get();
 
         $collection = Collect($upcomingExpense);
         $sorted = $collection->sortBy('duedate');
@@ -61,7 +70,12 @@ class HomeController extends Controller
     }
 
     public function calculateCategory($category){
-        $expenseCat = Expense::where('category', $category)->get();
+        $expenseCat = Expense::where([
+
+            ['category', $category],
+            ['user', auth::user()->email]
+
+        ])->get();
         $amounts = array();
 
         foreach($expenseCat as $catItem) {

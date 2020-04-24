@@ -41,6 +41,10 @@
                             <a class="nav-link" href="/expenses">Expenses</a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="/settings">Settings</a>
+                        </li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->

@@ -19,58 +19,7 @@
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header text-white" style="background-color: #1d643b;">Breakdown</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                        <div class="card" style="width: content-box;">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    Mortgage/Rent
-                                    <span class="badge float-right text-white" style="background-color: darkred">£{{$categoryTotals[0]}}</span>
-                                </li>
-                                <li class="list-group-item">
-                                    Transportation
-                                    <span class="badge float-right text-white" style="background-color: orange">£{{$categoryTotals[1]}}</span>
-                                </li>
-                                <li class="list-group-item">
-                                    Insurance
-                                    <span class="badge float-right text-white" style="background-color: olive">£{{$categoryTotals[2]}}</span>
-                                </li>
-                                <li class="list-group-item">
-                                    Loans
-                                    <span class="badge float-right text-white" style="background-color: seagreen">£{{$categoryTotals[3]}}</span>
-                                </li>
-                                <li class="list-group-item">
-                                    Leisure
-                                    <span class="badge float-right text-white" style="background-color: cadetblue">£{{$categoryTotals[4]}}</span>
-                                </li>
-                                <li class="list-group-item">
-                                    Food
-                                    <span class="badge float-right text-white" style="background-color: palevioletred">£{{$categoryTotals[5]}}</span>
-                                </li>
-                                <li class="list-group-item">
-                                    Misc
-                                    <span class="badge badge-primary badge float-right">£{{$categoryTotals[6]}}</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <a href="/expenses">
-                        <button type="button" class="btn btn-light btn-md btn-block">View All Expenses</button>
-                        </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-5">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header text-white" style="background-color: #1d643b;">Upcoming expenses</div>
 
@@ -109,5 +58,79 @@
             </div>
         </div>
 
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header text-white" style="background-color: #1d643b;">Breakdown</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    <div class="card" style="width: content-box;">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                Mortgage/Rent
+                                <span class="badge float-right text-white" style="background-color: darkred">£{{$categoryTotals[0]}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                Transportation
+                                <span class="badge float-right text-white" style="background-color: orange">£{{$categoryTotals[1]}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                Insurance
+                                <span class="badge float-right text-white" style="background-color: olive">£{{$categoryTotals[2]}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                Loans
+                                <span class="badge float-right text-white" style="background-color: seagreen">£{{$categoryTotals[3]}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                Leisure
+                                <span class="badge float-right text-white" style="background-color: cadetblue">£{{$categoryTotals[4]}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                Food
+                                <span class="badge float-right text-white" style="background-color: palevioletred">£{{$categoryTotals[5]}}</span>
+                            </li>
+                            <li class="list-group-item">
+                                Misc
+                                <span class="badge badge-primary badge float-right">£{{$categoryTotals[6]}}</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="/expenses">
+                        <button type="button" class="btn btn-outline-success btn-md btn-block">View All Expenses</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+        <div class="card" style="margin-top: 15px">
+            <div class="card-header text-white" style="background-color: #1d643b;">Breakdown</div>
+
+            <div class="card-body">
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
+
+                <div class="card" style="width: content-box;">
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    </div>
 </div>
 @endsection

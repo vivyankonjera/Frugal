@@ -9,7 +9,8 @@
 
                     <div class="card-body">
                         <form action="/settings" method="POST">
-                            <label for="currencySelect">Currency</label>
+
+                            <label for="currencySelect" style="padding-top: 10px">Currency</label>
                             <select class="form-control" id="currencySelect" name="currency" >
                                 <option selected>GDP</option>
                                 <option>USD</option>
@@ -20,21 +21,29 @@
                                 <option>AUD</option>
                             </select>
 
-                            <label style="padding-top: 10px">Alerts</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="textAlert">
-                            <label class="form-check-label" for="textAlert">
-                                Text
-                            </label>
-                        </div>
+                            <label style="padding-top: 10px">Reminders</label>
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="emailAlert">
-                            <label class="form-check-label" for="emailAlert">
-                                Email
-                            </label>
-                        </div>
-                            <button type="submit" class="btn btn-success float-right">Save</button>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="enableReport" value="Enable" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Enable
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="disableReport" value="Disable">
+                                <label class="form-check-label" for="exampleRadios2">
+                                    Disable
+                                </label>
+                            </div>
+
+                            <label for="remFreqSelect" style="padding-top: 10px">Reminder occurence</label>
+                            <select class="form-control" id="freqSelect" name="reminder" >
+                                <option selected>1 day</option>
+                                <option>2 days</option>
+                                <option>1 week</option>
+
+                            </select>
+                            <button type="submit" class="btn btn-success float-right" style="margin-top: 20px">Save</button>
                         </form>
                     </div>
                 </div>
