@@ -74,15 +74,15 @@
                 <div class="card-header"></div>
 
                 <div class="card-body">
-                        <div class="form-group">
-                        <button type="submit" class="btn btn-outline-light", style="color: #3b5998">Login with Facebook</button>
-                        </div>
-
-                        <div class ="form-group">
-                            <a href="/login/google">
-                        <button type="" class="btn btn-outline-light", style="color: #de5246">Login with Google</button>
+                    <div class="row justify-content-center">
+                            <a href="/login/facebook" class="fb btn" style="color: #3b5998 ">
+                                <i class="fa fa-facebook fa-fw"></i> Login with Facebook
                             </a>
-                        </div>
+
+                            <a href="/login/google" class="google btn" style="color: #DB4437" >
+                                <i class="fa fa-google fa-fw"></i> Login with Google+
+                            </a>
+                    </div>
                 </div>
 
     </div>

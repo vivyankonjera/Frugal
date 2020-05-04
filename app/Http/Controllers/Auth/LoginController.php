@@ -43,24 +43,18 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function redirectToProvider()
+    public function redirectToProvider($provider)
     {
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver($provider)->redirect();
     }
 
-    /**
-     * Obtain the user information from GitHub.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function handleProviderCallback()
+
+    public function handleProviderCallback($provider)
     {
-        $user = Socialite::driver('google')->stateless()->user();
+        $user = Socialite::driver($provider)->stateless()->user();
         $userLogin = $this->authenticateUser($user);
         Auth::login($userLogin, true);
         return redirect($this->redirectTo);
-
-        // $user->token;
     }
 
     public function authenticateUser($user){
