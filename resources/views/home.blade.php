@@ -120,19 +120,54 @@
 
     <div class="row justify-content-center">
         <div class="col-md-12">
-        <div class="card" style="margin-top: 15px">
-            <div class="card-header text-white" style="background-color: #1d643b;">Breakdown</div>
+            <div class="card" style="margin-top: 15px">
+                <div class="card-header text-white" style="background-color: #1d643b;">Breakdown II</div>
 
-            <div class="card-body">
-                <canvas id="catChart"></canvas>
+                <div class="card-body">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <canvas id="budgetBarChart"></canvas>
+                        </div>
+
+                        <div class="col-md-6" style="padding-bottom: 40px">
+                            <canvas id="catChart"></canvas>
+                        </div>
+
+                        <form class="form-inline" action="/home" method="post">
+                            @csrf
+                            <div class="form-group mb-2">
+                                <label for="categorySelect" style="padding: 10px">Category</label>
+                                <select class="form-control" id="categorySelect" name="category" >
+                                    <option selected>Loans</option>
+                                    <option>Transportation</option>
+                                    <option>Insurance</option>
+                                    <option>Mortgage/Rent</option>
+                                    <option>Leisure</option>
+                                    <option>Food</option>
+                                    <option>Misc</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group mx-sm-3 mb-2">
+                                <label for="budgetfield" class="sr-only">Budget</label>
+                                <input type="" class="form-control" id="budgetAmount" name="budget" >
+                            </div>
+                            <button type="submit" class="btn btn-success mb-2">Budget</button>
+                        </form>
+
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </div>
 
     <script>
         let catChart = document.getElementById('catChart').getContext('2d');
+
+        Chart.defaults.global.defaultFontFamily = 'Nunito';
+        Chart.defaults.global.defaultFontSize = 14;
+
         let currentSpendPie = new Chart(catChart, {
             type: 'doughnut',
             data:{
@@ -149,9 +184,91 @@
                         {{$categoryTotals[6]}}
                     ],
 
+                    backgroundColor: [
+                        "darkred",
+                        "orange",
+                        "olive",
+                        "seagreen",
+                        "cadetblue",
+                        "palevioletred",
+                        "cornflowerblue"
+                    ]
                 }]
             },
-            options:{}
+            options:{
+                title:{
+                    display: true,
+                    text: 'Amount spent by category'
+                },
+                legend:{
+                    position: 'right'
+                }
+            },
+        })
+
+        let budChart = document.getElementById('budgetBarChart').getContext('2d');
+        let currentSpendbar = new Chart(budChart, {
+            type: 'horizontalBar',
+            data:{
+                labels:['Mortgage/Rent', 'Travel', 'insurance','Loans','Leisure','Food','Misc' ],
+                datasets:[
+                    {
+                    data:[
+                        {{$categoryTotals[0]}},
+                        {{$categoryTotals[1]}},
+                        {{$categoryTotals[2]}},
+                        {{$categoryTotals[3]}},
+                        {{$categoryTotals[4]}},
+                        {{$categoryTotals[5]}},
+                        {{$categoryTotals[6]}}
+                    ],
+
+                    backgroundColor: [
+                        "darkred",
+                        "orange",
+                        "olive",
+                        "seagreen",
+                        "cadetblue",
+                        "palevioletred",
+                        "cornflowerblue"
+                    ]
+                    },
+
+                    {
+                        data:[
+                            {{$budgetTotals[0]}},
+                            {{$budgetTotals[1]}},
+                            {{$budgetTotals[2]}},
+                            {{$budgetTotals[3]}},
+                            {{$budgetTotals[4]}},
+                            {{$budgetTotals[5]}},
+                            {{$budgetTotals[6]}}
+                        ],
+
+                        backgroundColor: [
+                            "darkred",
+                            "orange",
+                            "olive",
+                            "seagreen",
+                            "cadetblue",
+                            "palevioletred",
+                            "cornflowerblue"
+                        ]
+                    }
+
+
+                ]
+            },
+            options:{
+                title:{
+                    display: true,
+                    text: 'Budget Utilisation'
+                },
+
+               legend: {
+                   display: false
+               }
+            },
         })
     </script>
 @endsection

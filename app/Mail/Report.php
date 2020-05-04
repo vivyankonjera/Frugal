@@ -16,9 +16,11 @@ class Report extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $expense;
+
+    public function __construct($expense)
     {
-        //
+        $this->expense = $expense;
     }
 
     /**

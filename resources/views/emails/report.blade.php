@@ -1,7 +1,7 @@
 @component('mail::message')
-# Hello,
+# Hello, {{auth::user()->name}}
 
-Just a heads up! You have payment due in
+Just a heads up! You have the following payment: {{$expense->expense}} due on {{$expense->duedate}}
 
 @component('mail::button', ['url' => 'http://localhost'])
 Manage Expenses

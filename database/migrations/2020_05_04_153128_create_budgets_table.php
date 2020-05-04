@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSettingsTable extends Migration
+class CreateBudgetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
+        Schema::create('budgets', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('category');
+            $table->integer('budget');
             $table->string('user');
-            $table->string('currency')->default('GBP');
-            $table->string('reminders')->default('enabled');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('budgets');
     }
 }

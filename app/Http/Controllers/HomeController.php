@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\budgets;
 use App\Mail\Report;
 use Illuminate\Http\Request;
 use App\Expense;
@@ -27,7 +28,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $this->emailReminder(2);
 
         $categoryTotals = [
             $this->calculateCategory("Mortgage/Rent"),
@@ -40,10 +40,20 @@ class HomeController extends Controller
 
             ];
 
+        $budgetTotals = [
+            $this->budgets("Mortgage/Rent"),
+            $this->budgets("Transportation"),
+            $this->budgets("Insurance"),
+            $this->budgets("Loans"),
+            $this->budgets("Leisure"),
+            $this->budgets("Food"),
+            $this->budgets("Misc"),
+        ];
+
 
         $upcomingExpense = $this->sortUpcomingExpenses();
 
-        return view('home', compact('upcomingExpense'), compact('categoryTotals'));
+        return view('home', compact('upcomingExpense'), compact('categoryTotals', 'budgetTotals'));
     }
 
     public function sortUpcomingExpenses(){
@@ -62,12 +72,61 @@ class HomeController extends Controller
         return $sorted;
     }
 
+    public function budgets($category){
+        $budgets = budgets::where([
+
+            ['user', auth::user()->email],
+            ['category', $category]
+
+        ])->get();
+
+        $amounts = array();
+
+        foreach($budgets as $budItem) {
+            $amounts[] = $budItem->budget;
+        }
+
+        $collection = Collect($amounts)->sum();
+
+        return $collection;
+    }
+
     public function payExpense($id){
 
         $expense = Expense::find($id);
 
         $expense->paid = "Paid";
         $expense->save();
+        return redirect('/home');
+    }
+
+    public function addBudget(Request $request)
+    {
+        $request->validate([
+            'budget'=> 'required',
+        ]);
+
+        $budgets = budgets::where([
+
+            ['user', auth::user()->email],
+            ['category', $request->category]
+
+        ])->first();
+
+        if ($budgets){
+            $budgets->category = $request->category;
+            $budgets->budget = $request->budget;
+            $budgets->user = auth::user()->email;
+            $budgets->save();
+        }
+
+        else {
+            $budget = new budgets();
+            $budget->category = $request->category;
+            $budget->budget = $request->budget;
+            $budget->user = auth::user()->email;
+            $budget->save();
+        }
         return redirect('/home');
     }
 
@@ -89,17 +148,7 @@ class HomeController extends Controller
         return $collection;
     }
 
-    public function emailReminder($reminderFreq){
-        $upcomingExpenses = $this->sortUpcomingExpenses();
-        $start_date = strtotime(date("y/m/d"));
-        foreach($upcomingExpenses as $expense){
-            $end_date = strtotime($expense->duedate);
-            $timeLeft = ($end_date - $start_date)/60/60/24;
-            if ($timeLeft < $reminderFreq){
-                \Mail::to(Auth::user()->email)->send(new Report);
-            }
-        }
-    }
+
 
 
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Report;
+use App\Settings;
 use Illuminate\Http\Request;
 use App\Expense;
 use Illuminate\Support\Facades;
@@ -24,7 +26,6 @@ class ExpenseController extends Controller
             'amount'=> 'required'
         ]);
 
-        //Expense::create(request(['expense', 'amount', 'category', 'duedate','paid', 'user']));
         $expense = new Expense;
         $expense->expense = $request->expense;
         $expense->amount = $request->amount;
@@ -34,6 +35,10 @@ class ExpenseController extends Controller
         $expense->user = auth::user()->email;
         $expense->save();
 
+        $userSettings = Settings::where('user', auth::user()->email)->first();
+        if ($userSettings->reminders == 'enabled' && request()->paid == 'Unpaid') {
+            $this->emailReminder($userSettings->reminderFrequency, $expense, $userSettings->reminders);
+        }
         return redirect('/expenses');
     }
 
@@ -67,10 +72,18 @@ class ExpenseController extends Controller
         return redirect('/expenses');
     }
 
-//    public function searchExpense(){
-//        $search = \request('search');
-//        dd($search);
-//        $result = Expense::where('expense', $search)->first();
-//        return view('/result', ['search' => $result]);
-//    }
+    public function emailReminder($reminderFreq, $expense){
+            $start_date = strtotime(date("y/m/d"));
+            $end_date = strtotime($expense->duedate);
+            $timeLeft = ($end_date - $start_date) / 60 / 60 / 24;
+
+            $expenseReminder = $expense;
+            \Mail::to(Auth::user()->email)->send(new Report($expenseReminder));
+    }
+
+    public function searchExpense(){
+        $search = \request('search');
+        $result = Expense::where('expense', $search)->get();
+        return view('/result', ['search' => $result]);
+    }
 }
