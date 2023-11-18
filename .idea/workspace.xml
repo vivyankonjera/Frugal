@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="891276d2-20d9-429f-ab74-10e94a06c8eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/budgets.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_05_04_153128_create_budgets_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExpenseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExpenseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SettingsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/Report.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/Report.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Settings.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_10_215338_create_expenses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_10_215338_create_expenses_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_04_045713_create_settings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_04_045713_create_settings_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/emails/report.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/report.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/settings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/settings.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +140,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../guestbook-laravel" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -195,7 +181,14 @@
       <workItem from="1587081961063" duration="5693000" />
       <workItem from="1587433556910" duration="38751000" />
       <workItem from="1588549602946" duration="12273000" />
-      <workItem from="1588568525998" duration="33284000" />
+      <workItem from="1588568525998" duration="33650000" />
+      <workItem from="1592512649981" duration="622000" />
+      <workItem from="1592515834243" duration="1784000" />
+      <workItem from="1594161361682" duration="2576000" />
+      <workItem from="1598235681255" duration="48000" />
+      <workItem from="1598235767500" duration="1233000" />
+      <workItem from="1598627441635" duration="2587000" />
+      <workItem from="1605873564904" duration="23000" />
     </task>
     <task id="LOCAL-00001" summary="Added Authentication to application">
       <created>1578631372046</created>
